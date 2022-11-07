@@ -1,0 +1,22 @@
+{
+  "name": "backup_sibias",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wildannz11/backup_sibias.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wildannz11/backup_sibias/issues"
+  },
+  "homepage": "https://github.com/Wildannz11/backup_sibias#readme",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}
