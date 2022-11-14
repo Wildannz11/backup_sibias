@@ -1,0 +1,35 @@
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "username": "maulana123",
+    "nama": "maulana",
+    "email": "maulana@gmail.com",
+    "password": "12345",
+    "confirm_password": "12345",
+    "role": "rakyat"
+}
+
+
+###
+GET http://localhost:5000/users
+
+
+
+
+###
+GET http://localhost:5000/users/a7c91d69-5df3-4fa4-89ce-f562aa8f39ca
+
+
+###
+PATCH http://localhost:5000/users/a7c91d69-5df3-4fa4-89ce-f562aa8f39ca
+Content-Type: application/json
+
+{
+    "username": "wildann11",
+    "nama": "wildan update",
+    "email": "wildan@gmail.com",
+    "password": "",
+    "confirm_password": "",
+    "role": "rakyat"
+}
