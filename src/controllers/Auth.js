@@ -18,18 +18,20 @@ export const login = async (req, res) => {
     
     req.session.uid = user.uid;
     const uid = user.uid;
+    const nama = user.nama
     const username = user.username;
     const email = user.email;
     const role = user.role;
-    res.status(200).json({uid, username, email, role});
+    res.status(200).json({uid, nama, username, email, role});
 }
 
 export const me = async (req, res) =>{
+try {
     if(!req.session.uid){
         return res.status(401).json({msg: "Mohon login ke akun Anda!"});
     }
     const user = await Users.findOne({
-        attributes:['uid','username','email','role'],
+        attributes:['uid','username','nama','email','role'],
         where: {
             uid: req.session.uid
         }
@@ -39,6 +41,9 @@ export const me = async (req, res) =>{
     }
     
     res.status(200).json(user);
+} catch (error) {
+    res.status(400).json({msg: error.message})
+}
 }
 
 export const logout = (req, res) =>{
