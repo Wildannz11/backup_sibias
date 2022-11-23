@@ -46,7 +46,7 @@ try {
 }
 }
 
-export const logout = (req, res) =>{
+export const logout = (req, res) => {
     req.session.destroy((err)=>{
         if(err) {
             return res.status(400).json({msg: "Tidak dapat logout"});

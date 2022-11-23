@@ -5,16 +5,33 @@ POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-    "username": "maulana123",
+    "username": "maulana12",
     "nama": "maulana",
-    "email": "maulana@gmail.com",
+    "email": "maulana1@gmail.com",
     "password": "12345",
     "confirm_password": "12345",
     "role": "rakyat"
 }
 
 ###
-GET http://localhost:5000/users
+POST http://localhost:5000/pemerintah
+Content-Type: application/json
+
+{
+    "nama_lembaga": "pemerintah jakarta",
+    "deskripsi_lembaga": "lorem epsum bla bla bla",
+    "email": "pemkotjakarta@gmail.com",
+    "password": "12345",
+    "confirm_password": "12345",
+    "role": "pemerintah"
+}
+
+###
+GET http://localhost:5000/users/rakyat
+
+###
+GET http://localhost:5000/pemerintah/
+
 
 ###
 GET http://localhost:5000/users/a7c91d69-5df3-4fa4-89ce-f562aa8f39ca

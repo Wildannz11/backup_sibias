@@ -7,13 +7,14 @@ const Users = db.define('user',{
         type: DataTypes.STRING,
         defaultValue: DataTypes.UUIDV4,
         allowNull: false,
+        primaryKey: true,
         validate:{
             notEmpty: true
         }
     },
     username:{ 
         type: DataTypes.STRING, 
-        allowNull: false,
+        allowNull: true,
         validate:{
             notEmpty: true,
             len: [1,255]
@@ -21,7 +22,7 @@ const Users = db.define('user',{
     },
     nama:{ 
         type: DataTypes.STRING, 
-        allowNull: false,
+        allowNull: true,
         validate:{
             notEmpty: true,
         }
@@ -41,13 +42,39 @@ const Users = db.define('user',{
             notEmpty: true
         }
     },
+    alamat:{ 
+        type: DataTypes.STRING, 
+        allowNull: true,
+    },
+    no_hp:{ 
+        type: DataTypes.STRING, 
+        allowNull: true,
+    },
+    tgl_lahir:{ 
+        type: DataTypes.DATE, 
+        allowNull: true,
+    },
+    pendidikan:{ 
+        type: DataTypes.STRING, 
+        allowNull: true,
+    },
+    foto:{ 
+        type: DataTypes.BLOB, 
+        allowNull: true,
+    },
+    nama_lembaga:{ 
+        type: DataTypes.STRING, 
+        allowNull: true,
+    },
+    deskripsi_lembaga:{ 
+        type: DataTypes.STRING, 
+        allowNull: true,
+    },
     role:{ 
         type: DataTypes.STRING, 
-        allowNull: false,
-        validate:{
-            notEmpty: true,
-        }
+        allowNull: true,
     },
+
 },{
     freezeTableName: true
 })
