@@ -86,6 +86,14 @@ import { verifyUser , rakyatOnly , pemerintahOnly } from "../middleware/AuthUser
 
 const router = express.Router();
 
+const getHome = async (req, res) => {
+    res.status(200).send('This is home menu of SIBIAS BE Apps');
+    console.log("This is home menu of SIBIAS BE Apps");
+}    
+
+// Home
+router.get('/', getHome)
+
 // Authentication
 router.get('/users/me', statusLoginUser);
 router.get('/pemerintah/me', statusLoginPemerintah);

@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Wildannz11/Sibias.git"
+    "url": "git+https://github.com/Wildannz11/backup_sibias.git"
   },
   "keywords": [],
   "author": "Wildan, Fadil, Maulana, Toni",
   "license": "ISC",
-  "homepage": "https://github.com/Wildannz11/Sibias#readme",
+  "homepage": "https://github.com/Wildannz11/backup_sibias#readme",
   "dependencies": {
     "argon2": "^0.30.2",
     "body-parser": "^1.20.1",
