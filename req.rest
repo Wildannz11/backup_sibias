@@ -1,67 +1,316 @@
 
 // CRUD User
 
+// create user rakyat
 POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "username": "john123",
+    "nama": "john doe",
+    "email": "john123@gmail.com",
+    "password": "12345",
+    "confirm_password": "12345",
+    "role": "rakyat"
+}
+
+
+// create user pemerintah
+###
+POST http://localhost:5000/pemerintah
+Content-Type: application/json
+
+{
+    "nama_lembaga": "pemerintah karawang",
+    "deskripsi_lembaga": "lorem epsum bla bla bla",
+    "email": "pemkarawang@gmail.com",
+    "password": "12345",
+    "confirm_password": "12345",
+    "role": "pemerintah"
+}
+
+
+// get all user rakyat
+###
+GET http://localhost:5000/users/rakyat
+
+
+// get all user pemerintah
+###
+GET http://localhost:5000/pemerintah/pemerintah
+
+
+// get by id user rakyat
+###
+GET http://localhost:5000/users/rakyat/13b50edd-72b1-47be-b063-5a7f216206d7
+
+
+// get by id user pemerintah
+###
+GET http://localhost:5000/pemerintah/pemerintah/5c403da5-6b7d-4cc4-807f-f45d5c71a656
+
+
+// edit by id user rakyat
+###
+PATCH http://localhost:5000/users/13b50edd-72b1-47be-b063-5a7f216206d7
 Content-Type: application/json
 
 {
     "username": "maulana12",
     "nama": "maulana",
     "email": "maulana1@gmail.com",
-    "password": "12345",
-    "confirm_password": "12345",
-    "role": "rakyat"
-}
-
-###
-POST http://localhost:5000/pemerintah
-Content-Type: application/json
-
-{
-    "nama_lembaga": "pemerintah jakarta",
-    "deskripsi_lembaga": "lorem epsum bla bla bla",
-    "email": "pemkotjakarta@gmail.com",
-    "password": "12345",
-    "confirm_password": "12345",
-    "role": "pemerintah"
-}
-
-###
-GET http://localhost:5000/users/rakyat
-
-###
-GET http://localhost:5000/pemerintah/
-
-
-###
-GET http://localhost:5000/users/a7c91d69-5df3-4fa4-89ce-f562aa8f39ca
-
-###
-PATCH http://localhost:5000/users/a7c91d69-5df3-4fa4-89ce-f562aa8f39ca
-Content-Type: application/json
-
-{
-    "username": "wildann11",
-    "nama": "wildan update",
-    "email": "wildan@gmail.com",
     "password": "",
     "confirm_password": "",
-    "role": "rakyat"
+    "alamat": "Bandung barat",
+    "no_hp": "081297686599",
+    "tgl_lahir": "2000-11-11",
+    "pendidikan": "Sarjana"
 }
 
 
+// edit by id user pemerintah
+###
+PATCH http://localhost:5000/pemerintah/5c403da5-6b7d-4cc4-807f-f45d5c71a656
+Content-Type: application/json
+
+{
+    "nama_lembaga": "pemerintah bekasi 2",
+    "deskripsi_lembaga": "lorem epsum bla bla bla",
+    "email": "pemkotbekasi2@gmail.com",
+    "password": "",
+    "confirm_password": ""
+}
+
+
+// Delete user (can rakyat and pemerintah)
 ###
 DELETE http://localhost:5000/users/a7c91d69-5df3-4fa4-89ce-f562aa8f39ca
 
 
 // Auth User
 
+// Login user rakyat
 ###
-POST http://localhost:5000/login
+POST http://localhost:5000/users/login
 Content-Type: application/json
 
 {
-    "email": "fadil@gmail.com",
+    "email": "john123@gmail.com",
     "password": "12345"
 }
 
+
+// Login user pemerintah
+###
+POST http://localhost:5000/pemerintah/login
+Content-Type: application/json
+
+{
+    "email": "pemkarawang@gmail.com",
+    "password": "12345"
+}
+
+// cek status login rakyat
+###
+GET http://localhost:5000/users/me
+
+
+// cek status login pemerintah
+###
+GET http://localhost:5000/pemerintah/me
+
+
+// Logout user (can rakyat and pemerintah)
+###
+DELETE  http://localhost:5000/logout
+
+
+
+// Discussion CRUD 
+
+// Crete Discussion
+###
+POST http://localhost:5000/diskusi
+Content-Type: application/json
+
+{
+    "judul_diskusi": "pembahasan penyakit di indonesia"
+}
+
+// get all discussion
+###
+GET http://localhost:5000/diskusi
+
+
+// get discussion by id
+###
+GET http://localhost:5000/diskusi/c3eeea8d-4702-4d6d-8391-23f7989e258b
+
+
+// Update discussion by id
+###
+PATCH http://localhost:5000/diskusi/c3eeea8d-4702-4d6d-8391-23f7989e258b
+Content-Type: application/json
+
+{
+    "judul_diskusi": "pembahasan penyakit kepala di indonesia"
+}
+
+// Delete discussion by id
+###
+DELETE http://localhost:5000/diskusi/a0420c58-55c7-42b6-9109-15bb4ea19f2d
+
+
+
+// CUD chatdiskusi 
+###
+POST http://localhost:5000/chatdiskusi/c3eeea8d-4702-4d6d-8391-23f7989e258b
+Content-Type: application/json
+
+{
+    "isi_chat": "Lorepsum ipsum bla bla bla bla bla bla bla bla"
+}
+
+// Edit chat diskusi
+###
+PATCH http://localhost:5000/chatdiskusi/c3eeea8d-4702-4d6d-8391-23f7989e258b/64238973-27f2-44ae-aaf0-84a6aaaf6249
+Content-Type: application/json
+
+{
+    "isi_chat": "Perubahan Lorepsum ipsum bla bla bla bla bla bla bla bla"
+}
+
+// Deleete Chat Diskusi
+###
+DELETE http://localhost:5000/chatdiskusi/c3eeea8d-4702-4d6d-8391-23f7989e258b
+
+
+// CRUD Topic
+###
+POST http://localhost:5000/topic
+Content-Type: application/json
+
+{
+    "nama_topic": "Kesehatan"
+}
+
+###
+POST http://localhost:5000/topicdiskusi
+Content-Type: application/json
+
+{
+    "topicId": "2b5a026a-4511-496b-b466-9d7e83d8deb4",
+    "diskusiId": "c3eeea8d-4702-4d6d-8391-23f7989e258b"
+}
+
+###
+GET http://localhost:5000/topic
+
+
+###
+GET http://localhost:5000/topicdiskusi
+
+
+
+
+// Kebijakan CRUD 
+
+// Crete kebijakan
+###
+POST http://localhost:5000/kebijakan
+Content-Type: application/json
+
+{
+    "judul_kebijakan": "pembahasan BBM",
+    "isi_kebijakan": "Lorepsum ipsum bla bla bla bla bla bla bla bla"
+}
+
+// get all kebijakan
+###
+GET http://localhost:5000/kebijakan
+
+
+// get kebijakan by id
+###
+GET http://localhost:5000/kebijakan/a0420c58-55c7-42b6-9109-15bb4ea19f2d
+
+
+// Update kebijakan by id
+###
+PATCH http://localhost:5000/kebijakan/a0420c58-55c7-42b6-9109-15bb4ea19f2d
+Content-Type: application/json
+
+{
+    "judul_kebijakan": "edited pembahasan BBM Rakyat",
+    "isi_kebijakan": "Edited Lorepsum ipsum bla bla bla bla bla bla bla bla"
+}
+
+// Delete kebijakan by id
+###
+DELETE http://localhost:5000/kebijakan/a0420c58-55c7-42b6-9109-15bb4ea19f2d
+
+
+
+// Upload image kebijakan 
+###
+POST http://localhost:5000/images/kebijakan
+Content-Type: multipart/form-data
+
+{
+    "fotokebijakan": {masukin foto }
+}
+
+
+// Update image kebijakan by id
+###
+PATCH http://localhost:5000/images/kebijakan/kid
+Content-Type: multipart/form-data
+
+{
+    "fotokebijakan": {masukin foto }
+}
+
+// publish kebijakan
+###
+PATCH http://localhost:5000/kebijakan/publish/a0420c58-55c7-42b6-9109-15bb4ea19f2d
+
+
+// CRUD tags kebijakan
+###
+POST http://localhost:5000/tags
+Content-Type: application/json
+
+{
+    "nama_tags": "UU Pencemaran Nama Baik"
+}
+
+###
+POST http://localhost:5000/tagskebijakan
+Content-Type: application/json
+
+{
+    "tagsId": "4c455b28-92ed-4599-a76c-0b5463777591",
+    "kebijakanId": "a0420c58-55c7-42b6-9109-15bb4ea19f2d"
+}
+
+
+###
+GET http://localhost:5000/tags
+
+###
+GET http://localhost:5000/tagskebijakan
+
+
+###
+GET http://localhost:5000/tags/92ef79bf-51dd-4824-b102-686523d4a89c
+
+
+
+
+###
+POST http://localhost:5000/commentkebijakan/a0420c58-55c7-42b6-9109-15bb4ea19f2d
+Content-Type: application/json
+
+{
+    "isi_comment": "Pendapatku kebijakan ini sangat buruk"
+}

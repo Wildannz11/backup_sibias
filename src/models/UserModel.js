@@ -3,6 +3,11 @@ import db from "../config/db.js";
 
 const {DataTypes} = Sequelize;
 const Users = db.define('user',{
+    // id:{
+    //     type: DataTypes.INTEGER,
+    //     primaryKey: true,
+    //     autoIncrement: true
+    // },
     uid:{ 
         type: DataTypes.STRING,
         defaultValue: DataTypes.UUIDV4,
@@ -51,15 +56,19 @@ const Users = db.define('user',{
         allowNull: true,
     },
     tgl_lahir:{ 
-        type: DataTypes.DATE, 
+        type: DataTypes.DATEONLY, 
         allowNull: true,
     },
     pendidikan:{ 
         type: DataTypes.STRING, 
         allowNull: true,
     },
-    foto:{ 
-        type: DataTypes.BLOB, 
+    foto_data:{ 
+        type: DataTypes.STRING, 
+        allowNull: true,
+    },
+    foto_url:{ 
+        type: DataTypes.STRING, 
         allowNull: true,
     },
     nama_lembaga:{ 
