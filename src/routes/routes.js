@@ -52,10 +52,8 @@ import {
     createKebijakan,
     editKebijakan,
     deleteKebijakan,
-    uploadImageKebijakanBaru,
     editUploadImageKebijakan,
-    publishKebijakan,
-    deleteKebijakanWithoutImage
+    publishKebijakan
 } from "../controllers/Kebijakan.js";
 
 import {
@@ -76,9 +74,9 @@ import {
     editUser,
     editPemerintah, 
     deleteUser,
-    uploadImageProfileBaru,
+    // uploadImageProfileBaru,
     editUploadImageProfile,
-    deleteUserWithoutImage,
+    // deleteUserWithoutImage,
     getUserImageById
 } from "../controllers/Users.js"
 
@@ -134,11 +132,8 @@ router.get('/kebijakan', verifyUser, getKebijakan);
 router.get('/kebijakan/:id', verifyUser, getKebijakanById);
 router.post('/kebijakan', verifyUser, pemerintahOnly, createKebijakan);
 router.patch('/kebijakan/:id', verifyUser, pemerintahOnly, editKebijakan);
-router.delete('/kebijakanimg/:id', verifyUser, pemerintahOnly, deleteKebijakan);
-router.delete('/kebijakan/:id', verifyUser, pemerintahOnly, deleteKebijakanWithoutImage);
+router.delete('/kebijakan/:id', verifyUser, pemerintahOnly, deleteKebijakan);
 
-
-router.patch('/images/kebijakannew/:id', verifyUser, pemerintahOnly, uploadImageKebijakanBaru);
 router.patch('/images/kebijakan/:id', verifyUser, pemerintahOnly, editUploadImageKebijakan);
 router.patch('/kebijakan/publish/:id', verifyUser, pemerintahOnly, publishKebijakan);
 
@@ -180,11 +175,10 @@ router.post('/pemerintah', createAkunPemerintah);
 router.patch('/users/:id',  verifyUser, rakyatOnly, editUser);
 router.patch('/pemerintah/:id',  verifyUser, pemerintahOnly, editPemerintah);
 
-router.delete('/usersimg/:id',  verifyUser, deleteUser);
-router.delete('/users/:id',  verifyUser, deleteUserWithoutImage);
+
+router.delete('/users/:id',  verifyUser, deleteUser);
 
 // patch user with image 
-router.patch('/images/usersnew/:id', verifyUser, uploadImageProfileBaru);
 router.patch('/images/users/:id', verifyUser, editUploadImageProfile);
 router.get('/images/users/:id', verifyUser, getUserImageById);
 

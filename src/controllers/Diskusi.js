@@ -183,7 +183,7 @@ export const deleteDiskusi = async (req, res) => {
             }       
         }
 
-        res.status(200).json({msg: "Sukses menghapus judul Diskusis"});
+        res.status(200).json({msg: "Sukses menghapus judul Diskusi"});
     } catch (error) {
         res.status(500).json({msg: error.message}); 
     }
