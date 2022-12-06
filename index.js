@@ -45,8 +45,8 @@ app.use(router);
 
 storedb.sync();
 
-const port = process.env.APP_PORT || 5000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () =>{
-    console.log(`server up and running in port ${process.env.APP_PORT} .....` );
+    console.log(`server up and running in port ${process.env.PORT} .....` );
 });
