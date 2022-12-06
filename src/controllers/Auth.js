@@ -47,8 +47,10 @@ export const loginPemerintah = async (req, res) => {
     const nama_lembaga = user.nama_lembaga;
     const deskripsi = user.deskripsi_lembaga;
     const email = user.email;
+    const foto_data = user.foto_data;
+    const foto_url = user.foto_url;
     const role = user.role;
-    res.status(200).json({msg: "Anda Berhasil login", uid, nama_lembaga, deskripsi, email, role});
+    res.status(200).json({msg: "Anda Berhasil login", uid, nama_lembaga, deskripsi, email,  foto_data, foto_url, role});
 }
 
 export const statusLoginUser = async (req, res) =>{
