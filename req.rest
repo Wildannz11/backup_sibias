@@ -2,13 +2,13 @@
 // CRUD User
 
 // create user rakyat
-POST http://localhost:5000/users
+POST https://sibias.up.railway.app/users
 Content-Type: application/json
 
 {
-    "username": "john123",
-    "nama": "john doe",
-    "email": "john123@gmail.com",
+    "username": "opin123",
+    "nama": "opin",
+    "email": "opin123@gmail.com",
     "password": "12345",
     "confirm_password": "12345",
     "role": "rakyat"
@@ -17,7 +17,7 @@ Content-Type: application/json
 
 // create user pemerintah
 ###
-POST http://localhost:5000/pemerintah
+POST https://sibias.up.railway.app//pemerintah
 Content-Type: application/json
 
 {
@@ -32,27 +32,27 @@ Content-Type: application/json
 
 // get all user rakyat
 ###
-GET http://localhost:5000/users/rakyat
+GET https://sibias.up.railway.app//users/rakyat
 
 
 // get all user pemerintah
 ###
-GET http://localhost:5000/pemerintah/pemerintah
+GET https://sibias.up.railway.app//pemerintah/pemerintah
 
 
 // get by id user rakyat
 ###
-GET http://localhost:5000/users/rakyat/13b50edd-72b1-47be-b063-5a7f216206d7
+GET https://sibias.up.railway.app//users/rakyat/13b50edd-72b1-47be-b063-5a7f216206d7
 
 
 // get by id user pemerintah
 ###
-GET http://localhost:5000/pemerintah/pemerintah/5c403da5-6b7d-4cc4-807f-f45d5c71a656
+GET https://sibias.up.railway.app//pemerintah/pemerintah/5c403da5-6b7d-4cc4-807f-f45d5c71a656
 
 
 // edit by id user rakyat
 ###
-PATCH http://localhost:5000/users/13b50edd-72b1-47be-b063-5a7f216206d7
+PATCH https://sibias.up.railway.app//users/13b50edd-72b1-47be-b063-5a7f216206d7
 Content-Type: application/json
 
 {
@@ -70,7 +70,7 @@ Content-Type: application/json
 
 // edit by id user pemerintah
 ###
-PATCH http://localhost:5000/pemerintah/5c403da5-6b7d-4cc4-807f-f45d5c71a656
+PATCH https://sibias.up.railway.app//pemerintah/5c403da5-6b7d-4cc4-807f-f45d5c71a656
 Content-Type: application/json
 
 {
@@ -84,14 +84,14 @@ Content-Type: application/json
 
 // Delete user (can rakyat and pemerintah)
 ###
-DELETE http://localhost:5000/users/a7c91d69-5df3-4fa4-89ce-f562aa8f39ca
+DELETE https://sibias.up.railway.app//users/a7c91d69-5df3-4fa4-89ce-f562aa8f39ca
 
 
 // Auth User
 
 // Login user rakyat
 ###
-POST http://localhost:5000/users/login
+POST https://sibias.up.railway.app//users/login
 Content-Type: application/json
 
 {
@@ -102,7 +102,7 @@ Content-Type: application/json
 
 // Login user pemerintah
 ###
-POST http://localhost:5000/pemerintah/login
+POST https://sibias.up.railway.app//pemerintah/login
 Content-Type: application/json
 
 {
@@ -112,17 +112,17 @@ Content-Type: application/json
 
 // cek status login rakyat
 ###
-GET http://localhost:5000/users/me
+GET https://sibias.up.railway.app//users/me
 
 
 // cek status login pemerintah
 ###
-GET http://localhost:5000/pemerintah/me
+GET https://sibias.up.railway.app//pemerintah/me
 
 
 // Logout user (can rakyat and pemerintah)
 ###
-DELETE  http://localhost:5000/logout
+DELETE  https://sibias.up.railway.app//logout
 
 
 
@@ -130,7 +130,7 @@ DELETE  http://localhost:5000/logout
 
 // Crete Discussion
 ###
-POST http://localhost:5000/diskusi
+POST https://sibias.up.railway.app//diskusi
 Content-Type: application/json
 
 {
@@ -139,17 +139,17 @@ Content-Type: application/json
 
 // get all discussion
 ###
-GET http://localhost:5000/diskusi
+GET https://sibias.up.railway.app//diskusi
 
 
 // get discussion by id
 ###
-GET http://localhost:5000/diskusi/c3eeea8d-4702-4d6d-8391-23f7989e258b
+GET https://sibias.up.railway.app//diskusi/c3eeea8d-4702-4d6d-8391-23f7989e258b
 
 
 // Update discussion by id
 ###
-PATCH http://localhost:5000/diskusi/c3eeea8d-4702-4d6d-8391-23f7989e258b
+PATCH https://sibias.up.railway.app//diskusi/c3eeea8d-4702-4d6d-8391-23f7989e258b
 Content-Type: application/json
 
 {
@@ -158,13 +158,13 @@ Content-Type: application/json
 
 // Delete discussion by id
 ###
-DELETE http://localhost:5000/diskusi/a0420c58-55c7-42b6-9109-15bb4ea19f2d
+DELETE https://sibias.up.railway.app//diskusi/a0420c58-55c7-42b6-9109-15bb4ea19f2d
 
 
 
 // CUD chatdiskusi 
 ###
-POST http://localhost:5000/chatdiskusi/c3eeea8d-4702-4d6d-8391-23f7989e258b
+POST https://sibias.up.railway.app//chatdiskusi/c3eeea8d-4702-4d6d-8391-23f7989e258b
 Content-Type: application/json
 
 {
@@ -173,7 +173,7 @@ Content-Type: application/json
 
 // Edit chat diskusi
 ###
-PATCH http://localhost:5000/chatdiskusi/c3eeea8d-4702-4d6d-8391-23f7989e258b/64238973-27f2-44ae-aaf0-84a6aaaf6249
+PATCH https://sibias.up.railway.app//chatdiskusi/c3eeea8d-4702-4d6d-8391-23f7989e258b/64238973-27f2-44ae-aaf0-84a6aaaf6249
 Content-Type: application/json
 
 {
@@ -182,12 +182,12 @@ Content-Type: application/json
 
 // Deleete Chat Diskusi
 ###
-DELETE http://localhost:5000/chatdiskusi/c3eeea8d-4702-4d6d-8391-23f7989e258b
+DELETE https://sibias.up.railway.app//chatdiskusi/c3eeea8d-4702-4d6d-8391-23f7989e258b
 
 
 // CRUD Topic
 ###
-POST http://localhost:5000/topic
+POST https://sibias.up.railway.app//topic
 Content-Type: application/json
 
 {
@@ -195,7 +195,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:5000/topicdiskusi
+POST https://sibias.up.railway.app//topicdiskusi
 Content-Type: application/json
 
 {
@@ -204,11 +204,11 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5000/topic
+GET https://sibias.up.railway.app//topic
 
 
 ###
-GET http://localhost:5000/topicdiskusi
+GET https://sibias.up.railway.app//topicdiskusi
 
 
 
@@ -217,27 +217,27 @@ GET http://localhost:5000/topicdiskusi
 
 // Crete kebijakan
 ###
-POST http://localhost:5000/kebijakan
+POST https://sibias.up.railway.app//kebijakan
 Content-Type: application/json
 
 {
-    "judul_kebijakan": "pembahasan BBM",
+    "judul_kebijakan": "pembahasan korupsi para oknum pemerintah",
     "isi_kebijakan": "Lorepsum ipsum bla bla bla bla bla bla bla bla"
 }
 
 // get all kebijakan
 ###
-GET http://localhost:5000/kebijakan
+GET https://sibias.up.railway.app//kebijakan
 
 
 // get kebijakan by id
 ###
-GET http://localhost:5000/kebijakan/a0420c58-55c7-42b6-9109-15bb4ea19f2d
+GET https://sibias.up.railway.app//kebijakan/a0420c58-55c7-42b6-9109-15bb4ea19f2d
 
 
 // Update kebijakan by id
 ###
-PATCH http://localhost:5000/kebijakan/a0420c58-55c7-42b6-9109-15bb4ea19f2d
+PATCH https://sibias.up.railway.app//kebijakan/a0420c58-55c7-42b6-9109-15bb4ea19f2d
 Content-Type: application/json
 
 {
@@ -247,13 +247,13 @@ Content-Type: application/json
 
 // Delete kebijakan by id
 ###
-DELETE http://localhost:5000/kebijakan/a0420c58-55c7-42b6-9109-15bb4ea19f2d
+DELETE https://sibias.up.railway.app//kebijakan/a0420c58-55c7-42b6-9109-15bb4ea19f2d
 
 
 
 // Upload image kebijakan 
 ###
-POST http://localhost:5000/images/kebijakan
+POST https://sibias.up.railway.app//images/kebijakan
 Content-Type: multipart/form-data
 
 {
@@ -263,7 +263,7 @@ Content-Type: multipart/form-data
 
 // Update image kebijakan by id
 ###
-PATCH http://localhost:5000/images/kebijakan/kid
+PATCH https://sibias.up.railway.app//images/kebijakan/kid
 Content-Type: multipart/form-data
 
 {
@@ -272,12 +272,12 @@ Content-Type: multipart/form-data
 
 // publish kebijakan
 ###
-PATCH http://localhost:5000/kebijakan/publish/a0420c58-55c7-42b6-9109-15bb4ea19f2d
+PATCH https://sibias.up.railway.app//kebijakan/publish/a0420c58-55c7-42b6-9109-15bb4ea19f2d
 
 
 // CRUD tags kebijakan
 ###
-POST http://localhost:5000/tags
+POST https://sibias.up.railway.app//tags
 Content-Type: application/json
 
 {
@@ -285,7 +285,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:5000/tagskebijakan
+POST https://sibias.up.railway.app//tagskebijakan
 Content-Type: application/json
 
 {
@@ -295,20 +295,20 @@ Content-Type: application/json
 
 
 ###
-GET http://localhost:5000/tags
+GET https://sibias.up.railway.app//tags
 
 ###
-GET http://localhost:5000/tagskebijakan
-
-
-###
-GET http://localhost:5000/tags/92ef79bf-51dd-4824-b102-686523d4a89c
-
-
+GET https://sibias.up.railway.app//tagskebijakan
 
 
 ###
-POST http://localhost:5000/commentkebijakan/a0420c58-55c7-42b6-9109-15bb4ea19f2d
+GET https://sibias.up.railway.app//tags/92ef79bf-51dd-4824-b102-686523d4a89c
+
+
+
+
+###
+POST https://sibias.up.railway.app//commentkebijakan/a0420c58-55c7-42b6-9109-15bb4ea19f2d
 Content-Type: application/json
 
 {
