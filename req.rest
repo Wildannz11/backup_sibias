@@ -227,7 +227,7 @@ Content-Type: application/json
 
 // get all kebijakan
 ###
-GET https://sibias.up.railway.app//kebijakan
+GET http://localhost:3000/kebijakan
 
 
 // get kebijakan by id

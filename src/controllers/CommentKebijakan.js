@@ -12,7 +12,7 @@ export const getCommentKebijakans = async (req, res) => {
             attributes: ['ckid','isi_comment'],
             include:[{
                 model: Users,
-                attributes:['nama','username','email'],
+                attributes:['nama','username','email','nama_lembaga','foto_data','foto_url']
             }],
             
         });
@@ -43,7 +43,7 @@ export const getCommentKebijakansById = async (req, res) => {
             },
             include:[{
                 model: Users,
-                attributes:['nama','username','email']
+                attributes:['nama','username','email','nama_lembaga','foto_data','foto_url']
             }],
         })
 

@@ -26,7 +26,7 @@ export const getKebijakan = async (req, res) => {
                 attributes:['isi_comment'],
                 include:[{
                     model: Users,
-                    attributes:['nama','username','email']
+                    attributes:['nama','username','email','nama_lembaga','foto_data','foto_url']
                 }]
             },
             {
@@ -73,7 +73,7 @@ export const getKebijakanById = async (req, res) => {
 
         let response;
         response = await Kebijakans.findOne({
-            attributes: ['kid','judul_kebijakan','isi_kebijakan','jumlah_kunjungan','sudah_publish','foto_data','foto_url'],
+            // attributes: ['kid','judul_kebijakan','isi_kebijakan','jumlah_kunjungan','sudah_publish','foto_data','foto_url'],
             where: {
                 kid: kebijakan.kid
             },
@@ -83,7 +83,7 @@ export const getKebijakanById = async (req, res) => {
                 attributes:['isi_comment'],
                 include:[{
                     model: Users,
-                    attributes:['nama','username','email']
+                    attributes:['nama','username','email','nama_lembaga','foto_data','foto_url']
                 }]
             },
             {

@@ -19,13 +19,13 @@ export const getDiskusi = async (req, res) => {
                 attributes:['isi_chat'],
                 include:[{
                     model: Users,
-                    attributes:['nama','username','email']
+                    attributes:['nama','username','email','foto_data','foto_url']
                 }]
             },
             {
                 model: Users,
                 as: 'user',
-                attributes:['nama','username','email'],
+                attributes:['nama','username','email','foto_data','foto_url'],
             },
             {
                 model: Topics,
@@ -83,13 +83,13 @@ export const getDiskusiById = async (req, res) => {
                 attributes:['isi_chat'],
                 include:[{
                     model: Users,
-                    attributes:['nama','username','email']
+                    attributes:['nama','username','email','foto_data','foto_url']
                 }]
             },
             {
                 model: Users,
                 as: 'user',
-                attributes:['nama','username','email'],
+                attributes:['nama','username','email','foto_data','foto_url'],
             },
             {
                 model: Topics,
