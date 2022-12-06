@@ -81,7 +81,7 @@ export const editCommentKebijakans = async (req, res) => {
         }
 
         const {isi_comment} = req.body;
-        if (req.role === "rakyat") {
+        // if (req.role === "rakyat") {
             if (req.uid === commentKebijakans.userId) {
                 await CommentKebijakans.update(
                     {
@@ -95,9 +95,9 @@ export const editCommentKebijakans = async (req, res) => {
             } else {
                 return res.status(403).json({msg: "Harus login dengan email dan username yang sesuai"});
             }       
-        } else {
-            return res.status(404).json({msg: "Pemerintah tidak dapat mengupdate judul commentkebijakan"})
-        }
+        // } else {
+        //     return res.status(404).json({msg: "Pemerintah tidak dapat mengupdate judul commentkebijakan"})
+        // }
 
         res.status(200).json({msg: "Sukses mengedit chat commentkebijakan"});
     } catch (error) {
@@ -118,7 +118,7 @@ export const deleteCommentKebijakans = async (req, res) => {
             return res.status(404).json({msg: "Chat commentkebijakan tidak ditemukan"});
         }
 
-        if (req.role === "rakyat") {
+        // if (req.role === "rakyat") {
             if (req.uid === commentKebijakan.userId) {
                 await CommentKebijakans.destroy({ 
                     where:{
@@ -129,7 +129,7 @@ export const deleteCommentKebijakans = async (req, res) => {
             } else {
                 return res.status(403).json({msg: "Harus login dengan email dan username yang sesuai"});
             }       
-        }
+        // }
 
         res.status(200).json({msg: "Sukses menghapus chat commentkebijakan"});
     } catch (error) {

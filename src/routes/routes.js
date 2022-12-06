@@ -141,9 +141,9 @@ router.patch('/kebijakan/publish/:id', verifyUser, pemerintahOnly, publishKebija
 // CRUD comment kebijakan
 router.get('/commentkebijakan', verifyUser, getCommentKebijakans);
 router.get('/commentkebijakan/:id', verifyUser, getCommentKebijakansById);
-router.post('/commentkebijakan/:kid', verifyUser, rakyatOnly, createCommentKebijakans);
-router.patch('/commentkebijakan/:kid/:id', verifyUser, rakyatOnly, editCommentKebijakans);
-router.delete('/commentkebijakan/:kid/:id', verifyUser, rakyatOnly, deleteCommentKebijakans);
+router.post('/commentkebijakan/:kid', verifyUser, createCommentKebijakans);
+router.patch('/commentkebijakan/:kid/:id', verifyUser, editCommentKebijakans);
+router.delete('/commentkebijakan/:kid/:id', verifyUser, deleteCommentKebijakans);
 
 
 
