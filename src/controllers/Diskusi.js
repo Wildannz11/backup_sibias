@@ -1,9 +1,4 @@
-// import Diskusis from "../models/DiskusiModel.js";
-// import Users from "../models/UserModel.js";
-// import ChatDiskusis from "../models/ChatDiskusiModel.js";
-// import Topic from "../models/TopicModel.js";
-// import TopicDiskusis from "../models/Topic_DiskusiModel.js";
-import { Diskusis, Users, ChatDiskusis, Topics, TopicDiskusis } from "../associations/Association.js";
+import { Diskusis, Users, ChatDiskusis, Topics } from "../associations/Association.js";
 import { Op } from "sequelize";
 
 
@@ -12,20 +7,20 @@ export const getDiskusi = async (req, res) => {
         let response;
         
         response = await Diskusis.findAll({
-            attributes: ['did','judul_diskusi','jumlah_kunjungan'],
+            // attributes: ['did','judul_diskusi','jumlah_kunjungan'],
             include:[{
                 model: ChatDiskusis,
                 // as: 'chatdiskusi',
-                attributes:['isi_chat'],
+                // attributes:['isi_chat'],
                 include:[{
                     model: Users,
-                    attributes:['nama','username','email','foto_data','foto_url']
+                    // attributes:['uid','nama','username','email','foto_data','foto_url']
                 }]
             },
             {
                 model: Users,
                 as: 'user',
-                attributes:['nama','username','email','foto_data','foto_url'],
+                // attributes:['uid','nama','username','email','foto_data','foto_url'],
             },
             {
                 model: Topics,
@@ -83,13 +78,13 @@ export const getDiskusiById = async (req, res) => {
                 attributes:['isi_chat'],
                 include:[{
                     model: Users,
-                    attributes:['nama','username','email','foto_data','foto_url']
+                    // attributes:['uid','nama','username','email','foto_data','foto_url']
                 }]
             },
             {
                 model: Users,
                 as: 'user',
-                attributes:['nama','username','email','foto_data','foto_url'],
+                // attributes:['uid','nama','username','email','foto_data','foto_url'],
             },
             {
                 model: Topics,

@@ -9,10 +9,10 @@ export const getCommentKebijakans = async (req, res) => {
             where: {
                 kebijakanId: req.params.id
             },
-            attributes: ['ckid','isi_comment'],
+            // attributes: ['ckid','isi_comment'],
             include:[{
                 model: Users,
-                attributes:['nama','username','email','nama_lembaga','foto_data','foto_url']
+                // attributes:['nama','username','email','nama_lembaga','foto_data','foto_url']
             }],
             
         });
@@ -37,13 +37,13 @@ export const getCommentKebijakansById = async (req, res) => {
 
         let response;
         response = await CommentKebijakans.findOne({
-            attributes: ['ckid','isi_comment'],
+            // attributes: ['ckid','isi_comment'],
             where: {
                 ckid: commentkebijakan.ckid
             },
             include:[{
                 model: Users,
-                attributes:['nama','username','email','nama_lembaga','foto_data','foto_url']
+                // attributes:['nama','username','email','nama_lembaga','foto_data','foto_url']
             }],
         })
 

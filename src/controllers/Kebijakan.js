@@ -23,16 +23,16 @@ export const getKebijakan = async (req, res) => {
             // }]
             include:[{
                 model: CommentKebijakans,
-                attributes:['isi_comment'],
+                // attributes:['isi_comment'],
                 include:[{
-                    model: Users,
-                    attributes:['nama','username','email','nama_lembaga','foto_data','foto_url']
-                }]
+                    model: Users
+                    // attributes:['uid','nama','username','email','nama_lembaga','foto_data','foto_url']
+                }],
             },
             {
                 model: Users,
                 as: 'user',
-                attributes:['nama_lembaga','email'],
+                // attributes:['uid','nama_lembaga','email','foto_data','foto_url'],
             },
             {
                 model: Tags,
@@ -80,16 +80,16 @@ export const getKebijakanById = async (req, res) => {
             include:[{
                 model: CommentKebijakans,
                 // as: 'commentkebijakan',
-                attributes:['isi_comment'],
+                // attributes:['isi_comment'],
                 include:[{
                     model: Users,
-                    attributes:['nama','username','email','nama_lembaga','foto_data','foto_url']
+                    // attributes:['uid','nama','username','email','nama_lembaga','foto_data','foto_url']
                 }]
             },
             {
                 model: Users,
                 as: 'user',
-                attributes:['nama_lembaga','email'],
+                // attributes:['uid','nama_lembaga','email','foto_data','foto_url'],
             },
             {
                 model: Tags,

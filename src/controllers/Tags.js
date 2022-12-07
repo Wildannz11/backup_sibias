@@ -50,7 +50,7 @@ export const getTagsKebijakan = async (req, res) => {
                 through: "tags_kebijakan",
                 as: "kebijakan",
                 foreignKey: "kebijakanId",
-                attributes: ['judul_kebijakan','isi_kebijakan','sudah_publish','jumlah_kunjungan'],
+                // attributes: ['judul_kebijakan','isi_kebijakan','sudah_publish','jumlah_kunjungan'],
             }]
             // include:[{
             //     model: Tags,
@@ -90,7 +90,7 @@ export const getTagsById = async (req, res) => {
                 through: "tags_kebijakan",
                 as: "kebijakan",
                 foreignKey: "kebijakanId",
-                attributes: ['judul_kebijakan','isi_kebijakan','sudah_publish','jumlah_kunjungan'],
+                // attributes: ['judul_kebijakan','isi_kebijakan','sudah_publish','jumlah_kunjungan'],
             }]
         });
 
