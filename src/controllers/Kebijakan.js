@@ -36,10 +36,11 @@ export const getKebijakan = async (req, res) => {
 export const getSearchKebijakanByNama = async (req, res) => {
     try {
         let response;
+        const judul_kebijakan = req.query.judul_kebijakan;
         response = await Kebijakans.findAll({
             where: {
                 judul_kebijakan: {
-                    [Op.eq]: req.query.judul_kebijakan
+                    [Op.like]: `%${judul_kebijakan}%`
                 }
             },
             include:[{

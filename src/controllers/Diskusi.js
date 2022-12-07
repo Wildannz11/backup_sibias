@@ -42,11 +42,11 @@ export const getDiskusi = async (req, res) => {
 export const getSearchDiskusibyNama = async (req, res) => {
     try {
         let response;
-        
+        const judul_diskusi = req.query.judul_diskusi;
         response = await Diskusis.findAll({
             where : {
                 judul_diskusi: {
-                    [Op.eq]: req.query.judul_diskusi
+                    [Op.like]: `%${judul_diskusi}%` 
                 }
             },
             include:[{
