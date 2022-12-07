@@ -8,31 +8,49 @@ import fs from "fs";
 export const getKebijakan = async (req, res) => {
     try {
         let response;
+
         response = await Kebijakans.findAll({
-            // include:[{
-            //     model: Users,
-            //     attributes:['nama_lembaga','email']
-            // }],
-            // include:[{
-            //     model: CommentKebijakans,
-            //     attributes:['isi_comment'],
-            //     include:[{
-            //         model: Users,
-            //         attributes:['nama','username','email']
-            //     }],
-            // }]
             include:[{
                 model: CommentKebijakans,
-                // attributes:['isi_comment'],
                 include:[{
                     model: Users
-                    // attributes:['uid','nama','username','email','nama_lembaga','foto_data','foto_url']
                 }],
             },
             {
                 model: Users,
                 as: 'user',
-                // attributes:['uid','nama_lembaga','email','foto_data','foto_url'],
+            },
+            {
+                model: Tags,
+                through: "tags_kebijakan",
+                as: "tags",
+                foreignKey: "tagsId",
+            }]
+        });    
+        res.status(200).send({data: response});
+    } catch (error) {
+        res.status(500).json({msg: error.message});
+    }
+}
+
+export const getSearchKebijakanByNama = async (req, res) => {
+    try {
+        let response;
+        response = await Kebijakans.findAll({
+            where: {
+                judul_kebijakan: {
+                    [Op.eq]: req.query.judul_kebijakan
+                }
+            },
+            include:[{
+                model: CommentKebijakans,
+                include:[{
+                    model: Users
+                }],
+            },
+            {
+                model: Users,
+                as: 'user',
             },
             {
                 model: Tags,

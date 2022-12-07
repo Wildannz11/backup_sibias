@@ -1,4 +1,4 @@
-import { CommentKebijakans, Users } from "../associations/Association.js";
+import { CommentKebijakans, Kebijakans, Users } from "../associations/Association.js";
 import { Op } from "sequelize";
 
 export const getCommentKebijakans = async (req, res) => {
@@ -10,10 +10,15 @@ export const getCommentKebijakans = async (req, res) => {
                 kebijakanId: req.params.id
             },
             // attributes: ['ckid','isi_comment'],
-            include:[{
-                model: Users,
+            include:[
+                {
+                    model: Users,
                 // attributes:['nama','username','email','nama_lembaga','foto_data','foto_url']
-            }],
+                },
+                {
+                    model: Kebijakans, 
+                }
+            ],
             
         });
         
@@ -41,10 +46,15 @@ export const getCommentKebijakansById = async (req, res) => {
             where: {
                 ckid: commentkebijakan.ckid
             },
-            include:[{
-                model: Users,
+            include:[
+                {
+                    model: Users,
                 // attributes:['nama','username','email','nama_lembaga','foto_data','foto_url']
-            }],
+                },
+                {
+                    model: Kebijakans
+                }
+            ],
         })
 
         res.status(200).json(response);

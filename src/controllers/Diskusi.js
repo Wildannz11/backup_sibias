@@ -39,6 +39,41 @@ export const getDiskusi = async (req, res) => {
     }
 }
 
+export const getSearchDiskusibyNama = async (req, res) => {
+    try {
+        let response;
+        
+        response = await Diskusis.findAll({
+            where : {
+                judul_diskusi: {
+                    [Op.eq]: req.query.judul_diskusi
+                }
+            },
+            include:[{
+                model: ChatDiskusis,
+                include:[{
+                    model: Users,
+                }]
+            },
+            {
+                model: Users,
+                as: 'user',
+            },
+            {
+                model: Topics,
+                through: "topic_diskusi",
+                as: "topics",
+                foreignKey: "topicId",
+            }
+            ],    
+        });
+        
+        res.status(200).json(response);
+    } catch (error) {
+        res.status(500).json({msg: error.message});
+    }
+}
+
 export const getDiskusiById = async (req, res) => {
     try {
         const diskusi = await Diskusis.findOne({

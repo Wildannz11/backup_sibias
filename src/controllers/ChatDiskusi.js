@@ -1,72 +1,67 @@
 // import ChatDiskusis from "../models/ChatDiskusiModel.js";
-import { ChatDiskusis } from "../associations/Association.js";
+import { ChatDiskusis, Diskusis, Users } from "../associations/Association.js";
 import { Op } from "sequelize";
 
-// export const getChatDiskusi = async (req, res) => {
-//     try {
-//         let response;
+export const getChatDiskusi = async (req, res) => {
+    try {
+        let response;
         
-//         response = await ChatDiskusi.findAll({
-//             where: {
-//                 diskusiId: req.params.disId
-//             },
-//             attributes: ['cdid','isi_chat','jumlah_kunjungan'],
-//             include:[{
-//                 model: Users,
-//                 attributes:['nama','username','email'],
-//             }],
+        response = await ChatDiskusis.findAll({
+            where: {
+                diskusiId: req.params.did
+            },
+            // attributes: ['cdid','isi_chat','jumlah_kunjungan'],
+            include:[
+                {
+                    model: Users
+                // attributes:['nama','username','email'],
+                },
+                {
+                    model: Diskusis
+                }
+
+            ],
             
-//         });
+        });
         
-//         res.status(200).json(response);
-//     } catch (error) {
-//         res.status(500).json({msg: error.message});
-//     }
-// }
+        res.status(200).json(response);
+    } catch (error) {
+        res.status(500).json({msg: error.message});
+    }
+}
 
-// export const getDiskusiById = async (req, res) => {
-//     try {
-//         const diskusi = await Diskusi.findOne({
-//             where:{
-//                 did: req.params.id
-//             }
-//         });
+export const getChatDiskusiById = async (req, res) => {
+    try {
+        const diskusi = await ChatDiskusis.findOne({
+            where:{
+                cdid: req.params.id
+            }
+        });
 
-//         if (!diskusi) {
-//             return res.status(404).json({msg: "Judul diskusi tidak ditemukan"});
-//         }
+        if (!diskusi) {
+            return res.status(404).json({msg: "Judul diskusi tidak ditemukan"});
+        }
 
-//         let tambah = diskusi.jumlah_kunjungan + 1;
-//         await Diskusi.update(
-//             {
-//             jumlah_kunjungan: tambah
-//             },
-//             {
-//                 where: {
-//                     did: diskusi.did
-//                 }
-//             });
+        let response;
+        response = await ChatDiskusis.findOne({
+            where: {
+                cdid: diskusi.cdid
+            },
+            include:[
+                {
+                    model: Users,
+                },
+                {
+                    model: Diskusis
+                }
+            ],
+        })
 
-//         let response;
-//         response = await Diskusi.findOne({
-//             attributes: ['did','judul_diskusi','jumlah_kunjungan'],
-//             where: {
-//                 did: diskusi.did
-//             },
-//             include:[{
-//                 model: Users,
-//                 attributes:['nama','username','email'],
-//                 include:[{
-//                     model: ChatDiskusi
-//                 }]
-//             }],
-//         })
-
-//         res.status(200).json(response);
-//     } catch (error) {
-//         res.status(500).json({msg: error.message});
-//     }
-// }
+        res.status(200).json(response);
+    } catch (error) {
+        res.status(500).json({msg: error.message});
+    }
+}
 
 export const createChatDiskusi = async (req, res) => {
     const {isi_chat} = req.body;

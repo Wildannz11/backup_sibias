@@ -33,6 +33,8 @@ import {
 } from "../controllers/Topic.js";
 
 import {
+    getChatDiskusi,
+    getChatDiskusiById,
     createChatDiskusi,
     editChatDiskusi,
     deleteChatDiskusi
@@ -43,7 +45,8 @@ import {
     getDiskusiById,
     createDiskusi,
     editDiskusi,
-    deleteDiskusi
+    deleteDiskusi,
+    getSearchDiskusibyNama
 } from "../controllers/Diskusi.js";
 
 import {
@@ -53,7 +56,8 @@ import {
     editKebijakan,
     deleteKebijakan,
     editUploadImageKebijakan,
-    publishKebijakan
+    publishKebijakan,
+    getSearchKebijakanByNama
 } from "../controllers/Kebijakan.js";
 
 import {
@@ -74,9 +78,7 @@ import {
     editUser,
     editPemerintah, 
     deleteUser,
-    // uploadImageProfileBaru,
     editUploadImageProfile,
-    // deleteUserWithoutImage,
     getUserImageById
 } from "../controllers/Users.js"
 
@@ -103,12 +105,16 @@ router.delete('/logout', logout);
 
 // diskusi rakyat mengenai kebijakan
 router.get('/diskusi', verifyUser, getDiskusi);
+router.get('/diskusii', verifyUser, getSearchDiskusibyNama);
+// router.get('/diskusi?judul_diskusi=', verifyUser, getSearchDiskusibyNama);
 router.get('/diskusi/:id', verifyUser, getDiskusiById);
 router.post('/diskusi', verifyUser, rakyatOnly, createDiskusi);
 router.patch('/diskusi/:id', verifyUser, rakyatOnly, editDiskusi);
 router.delete('/diskusi/:id', verifyUser, rakyatOnly, deleteDiskusi);
 
 // CUD chat diskusi
+router.get('/chatdiskusi/:did', verifyUser, getChatDiskusi);
+router.get('/chatdiskusii/:id', verifyUser, getChatDiskusiById);
 router.post('/chatdiskusi/:did', verifyUser, rakyatOnly, createChatDiskusi);
 router.patch('/chatdiskusi/:did/:id', verifyUser, rakyatOnly, editChatDiskusi);
 router.delete('/chatdiskusi/:did/:id', verifyUser, rakyatOnly, deleteChatDiskusi);
@@ -129,6 +135,8 @@ router.delete('/topicdiskusi/:id', verifyUser, deleteTopicDiskusi);
 
 // CRUD pemerintah kebijakan
 router.get('/kebijakan', verifyUser, getKebijakan);
+// router.get('/kebijakan?judul_kebijakan=', verifyUser, getSearchKebijakanByNama);
+router.get('/kebijakann', verifyUser, getSearchKebijakanByNama);
 router.get('/kebijakan/:id', verifyUser, getKebijakanById);
 router.post('/kebijakan', verifyUser, pemerintahOnly, createKebijakan);
 router.patch('/kebijakan/:id', verifyUser, pemerintahOnly, editKebijakan);
