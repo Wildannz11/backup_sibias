@@ -132,7 +132,7 @@ Content-Type: application/json
 
 // cek status login rakyat
 ###
-GET https://sibias.up.railway.app//users/me
+GET https://sibias.up.railway.app/users/me
 
 
 // cek status login pemerintah
