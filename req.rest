@@ -6,11 +6,11 @@ POST https://sibias.up.railway.app/users
 Content-Type: application/json
 
 {
-    "username": "opin123",
-    "nama": "opin",
-    "email": "opin123@gmail.com",
-    "password": "12345",
-    "confirm_password": "12345",
+    "username": "black123",
+    "nama": "black",
+    "email": "black123@gmail.com",
+    "password": "test12345",
+    "confirm_password": "test12345",
     "role": "rakyat"
 }
 
