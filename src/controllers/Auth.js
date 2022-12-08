@@ -59,7 +59,7 @@ export const statusLoginUser = async (req, res) =>{
             return res.status(401).json({msg: "Mohon login ke akun Anda!"});
         }
         const user = await Users.findOne({
-            attributes:['uid','username','nama','email','role'],
+            attributes:['uid','username','nama','email','role','foto_data','foto_url'],
             where: {
                 uid: req.session.uid
             }
@@ -80,7 +80,7 @@ export const statusLoginPemerintah = async (req, res) =>{
             return res.status(401).json({msg: "Mohon login ke akun Anda!"});
         }
         const user = await Users.findOne({
-            attributes:['uid','nama_lembaga','deskripsi_lembaga','email','role'],
+            attributes:['uid','nama_lembaga','deskripsi_lembaga','email','role','foto_data','foto_url'],
             where: {
                 uid: req.session.uid
             }

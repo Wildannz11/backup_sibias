@@ -27,7 +27,7 @@ export const getKebijakan = async (req, res) => {
                 foreignKey: "tagsId",
             }]
         });    
-        res.status(200).send({data: response});
+        res.status(200).send(response);
     } catch (error) {
         res.status(500).json({msg: error.message});
     }
