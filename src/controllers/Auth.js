@@ -55,9 +55,9 @@ export const loginPemerintah = async (req, res) => {
 
 export const statusLoginUser = async (req, res) =>{
     try {
-        if(!req.session.uid){
-            return res.status(401).json({msg: "Mohon login ke akun Anda!"});
-        }
+        // if(!req.session.uid){
+        //     return res.status(401).json({msg: "Mohon login ke akun Anda!"});
+        // }
         const user = await Users.findOne({
             attributes:['uid','username','nama','email','role','foto_data','foto_url'],
             where: {
