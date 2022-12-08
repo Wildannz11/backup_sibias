@@ -17,13 +17,13 @@ const storedb = new sessionStore({
 });
 
 app.use(session({
-    secret: process.env.SESS_SECRET,
-    resave: false,
-    saveUninitialized: true,
+    // secret: process.env.SESS_SECRET,
+    // resave: false,
+    // saveUninitialized: true,
     store: storedb,
-    cookie: {
-        secure: true
-    }
+    // cookie: {
+    //     secure: false
+    // }
 }));
 
 const sync = async () => {
