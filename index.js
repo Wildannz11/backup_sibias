@@ -13,7 +13,8 @@ const app = express();
 const sessionStore = SequelizeStore(session.Store);
 
 const storedb = new sessionStore({
-    db: db
+    db: db,
+    
 });
 
 app.use(session({
@@ -22,10 +23,10 @@ app.use(session({
     saveUninitialized: true,
     proxy: true,
     store: storedb,
-    // cookie: {
-    //     secure: true,
-    //     httpOnly: false
-    // }
+    cookie: {
+        secure: true,
+        httpOnly: false
+    }
 }));
 
 // const sync = async () => {
