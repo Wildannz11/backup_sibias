@@ -20,10 +20,12 @@ app.use(session({
     secret: process.env.SESS_SECRET,
     resave: false,
     saveUninitialized: true,
+    proxy: true,
     store: storedb,
-    // cookie: {
-    //     secure: false
-    // }
+    cookie: {
+        secure: true,
+        httpOnly: false
+    }
 }));
 
 const sync = async () => {
