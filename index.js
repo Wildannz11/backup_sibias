@@ -22,10 +22,10 @@ app.use(session({
     saveUninitialized: true,
     proxy: true,
     store: storedb,
-    cookie: {
-        secure: true,
-        httpOnly: false
-    }
+    // cookie: {
+    //     secure: true,
+    //     httpOnly: false
+    // }
 }));
 
 // const sync = async () => {
