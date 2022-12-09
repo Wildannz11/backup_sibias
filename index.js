@@ -24,7 +24,7 @@ app.use(session({
     store: storedb,
     cookie: {
         secure: true,
-        // httpOnly: false
+        httpOnly: false
     }
 }));
 
