@@ -24,14 +24,14 @@ app.use(session({
     store: storedb,
     cookie: {
         secure: true,
-        httpOnly: false
+        // httpOnly: false
     }
 }));
 
-const sync = async () => {
-    await db.sync({ force: false });
-}
-sync();
+// const sync = async () => {
+//     await db.sync({ force: false });
+// }
+// sync();
 
 app.use(cors({
     credentials: true,
@@ -45,7 +45,7 @@ app.use(fileUpload());
 app.use(express.static("public"));
 app.use(router);
 
-storedb.sync();
+// storedb.sync();
 
 const port = process.env.PORT || 3000;
 
