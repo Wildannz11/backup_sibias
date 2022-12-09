@@ -1,9 +1,9 @@
 const dbConfig = {
-    HOST: "mysql-98448-0.cloudclusters.net",
+    HOST: "mysql-99393-0.cloudclusters.net",
     USER: "admin",
-    PASSWORD: "IzIDB5JY",
+    PASSWORD: "3viBLdUw",
     DB: "sibias",
-    PORT: "19875",
+    PORT: "10090",
     dialect: "mysql",
 }
 
