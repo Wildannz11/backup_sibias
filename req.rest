@@ -32,7 +32,7 @@ Content-Type: application/json
 
 // get all user rakyat
 ###
-GET https://sibias.up.railway.app//users/rakyat
+GET https://sibias.up.railway.app/users/rakyat
 
 
 // get all user pemerintah
